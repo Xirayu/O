@@ -1,0 +1,63 @@
+<svg width="600" height="300" viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    /* 核心魔法：定义移动动画 */
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-600px); } /* 移动一个屏幕的宽度 */
+    }
+
+    /* 远景：星星 (动得超级慢，甚至不动) */
+    .layer-stars {
+      /* 这里我们让星星微微动一点点，增加灵动感 */
+      animation: scroll 60s linear infinite;
+    }
+
+    /* 中景：远山 (动得慢) */
+    .layer-mountains {
+      animation: scroll 20s linear infinite;
+    }
+
+    /* 近景：草地和树 (动得快！) */
+    .layer-ground {
+      animation: scroll 6s linear infinite;
+    }
+  </style>
+
+  <rect width="100%" height="100%" fill="#0f172a" />
+
+  <g class="layer-stars">
+    <g id="stars-group">
+      <circle cx="50" cy="50" r="2" fill="white" opacity="0.8"/>
+      <circle cx="200" cy="80" r="1.5" fill="white" opacity="0.6"/>
+      <circle cx="450" cy="40" r="2" fill="white" opacity="0.7"/>
+      <circle cx="550" cy="120" r="1" fill="white" opacity="0.5"/>
+      <circle cx="300" cy="20" r="1.5" fill="white" opacity="0.9"/>
+    </g>
+    <use href="#stars-group" x="600" />
+  </g>
+
+  <g class="layer-mountains">
+    <g id="mountain-group">
+      <path d="M0,300 L150,100 L300,300 Z" fill="#334155" />
+      <path d="M250,300 L400,150 L550,300 Z" fill="#475569" />
+      <path d="M500,300 L650,120 L800,300 Z" fill="#334155" />
+    </g>
+    <use href="#mountain-group" x="600" />
+  </g>
+
+  <g class="layer-ground">
+    <g id="ground-group">
+      <path d="M0,300 Q150,250 300,300 T600,300 V350 H0 Z" fill="#1e293b" />
+      <rect x="50" y="260" width="10" height="40" fill="#0f172a"/>
+      <circle cx="55" cy="250" r="20" fill="#0f172a"/>
+      
+      <rect x="400" y="270" width="8" height="30" fill="#0f172a"/>
+      <circle cx="404" cy="260" r="15" fill="#0f172a"/>
+    </g>
+    <use href="#ground-group" x="600" />
+  </g>
+  
+  <text x="300" y="50" text-anchor="middle" fill="white" font-family="sans-serif" font-size="20" font-weight="bold" letter-spacing="2">
+    Welcome to Revaea
+  </text>
+</svg>
